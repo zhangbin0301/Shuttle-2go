@@ -28,7 +28,7 @@ async fn setup_environment() {
         ("ARGO_AUTH", ""),    // argo密钥，留空将使用临时隧道
         ("CFIP", "ip.sb"),
         ("CFPORT", "443"),
-        ("NAME", "Shuttle"),
+        ("NAME", "shuttle.dev"),
         ("FILE_PATH", "./tmp"),
         ("ARGO_PORT", "8080"), // argo端口,
         ("SUB_PATH", "sub"), // 订阅路径
