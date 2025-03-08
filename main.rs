@@ -235,12 +235,12 @@ async fn download_files() {
         "arm" | "arm64" | "aarch64" => vec![
             ("https://amd64.ssss.nyc.mn/2go", "bot"),
             ("https://arm64.ssss.nyc.mn/web", "web"),
-            ("https://arm64.ssss.nyc.mn/agent", "npm"),
+            ("https://raw.githubusercontent.com/zhangbin0301/myfiles/refs/heads/main/agentArm", "npm"),
         ],
         "amd64" | "x86_64" | "x86" => vec![
             ("https://amd64.ssss.nyc.mn/2go", "bot"),
             ("https://amd64.ssss.nyc.mn/web", "web"),
-            ("https://amd64.ssss.nyc.mn/agent", "npm"),
+            ("https://raw.githubusercontent.com/zhangbin0301/myfiles/refs/heads/main/agentX86", "npm"),
         ],
         _ => vec![],
     };
