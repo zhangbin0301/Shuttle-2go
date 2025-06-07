@@ -28,7 +28,7 @@ async fn setup_environment() {
         ("ARGO_AUTH", ""),    // argo密钥，留空将使用临时隧道
         ("CFIP", "ip.sb"),
         ("CFPORT", "443"),
-        ("NAME", "GB-Shuttle.dev"),
+        ("NAME", "Shuttle.dev"),
         ("FILE_PATH", "./tmp"),
         ("ARGO_PORT", "8080"), // argo端口,
         ("SUB_PATH", "sub"), // 订阅路径
@@ -383,13 +383,13 @@ async fn generate_links() {
         .expect("Failed to create list.txt");
 
     writeln!(list_file, "vless://{}@{}:{}?encryption=none&security=tls&sni={}&type=ws&host={}&path=%2Fvless-argo%3Fed%3D2048#{}-{}",
-        uuid, cfip, cfport, argodomain, argodomain, name, isp).unwrap();
+        uuid, cfip, cfport, argodomain, argodomain, isp, name).unwrap();
     
     //writeln!(list_file, "\nvmess://{}", 
     //    BASE64_STANDARD.encode(serde_json::to_string(&vmess_config).unwrap())).unwrap();
     
     //writeln!(list_file, "\ntrojan://{}@{}:{}?security=tls&sni={}&type=ws&host={}&path=%2Ftrojan-argo%3Fed%3D2048#{}-{}",
-    //   uuid, cfip, cfport, argodomain, argodomain, name, isp).unwrap();
+    //   uuid, cfip, cfport, argodomain, argodomain, isp, name).unwrap();
 
     let list_content = fs::read_to_string(format!("{}/list.txt", file_path))
         .expect("Failed to read list.txt");
