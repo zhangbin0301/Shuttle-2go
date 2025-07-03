@@ -26,7 +26,7 @@ async fn setup_environment() {
         ("NEZHA_KEY", "e4bDs04zKcXvnCeqs5"),
         ("ARGO_DOMAIN", ""),  // argo固定隧道也可在scrects中添加环境变量
         ("ARGO_AUTH", ""),    // argo密钥，留空将使用临时隧道
-        ("CFIP", "ip.sb"),
+        ("CFIP", "try.cloudflare.com"),
         ("CFPORT", "443"),
         ("NAME", "Shuttle.dev"),
         ("FILE_PATH", "./tmp"),
