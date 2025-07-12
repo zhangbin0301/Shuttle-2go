@@ -25,7 +25,7 @@ async fn setup_environment() {
         ("ARGO_PORT", "8080"),  // argo端口，使用固定隧道token，需要在cloudflare后台也设置端口为8080
         ("CFIP", "time.is"),    // 优选域名或优选ip
         ("CFPORT", "443"),      // 优选域名或优选ip对应的端口
-        ("NAME", "Shuttle.dev"),    // 节点名称
+        ("NAME", "GB-Shuttle.dev"),    // 节点名称
         ("FILE_PATH", "./tmp"), // 运行目录，保持不变
         ("SUB_PATH", "sub"),    // 获取节点订阅路径，分配的域名/sub
     ];
