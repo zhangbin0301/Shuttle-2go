@@ -25,7 +25,7 @@ async fn setup_environment() {
         ("ARGO_PORT", "8080"),  // argo端口，使用固定隧道token，需要在cloudflare后台也设置端口为8080
         ("CFIP", "time.is"),    // 优选域名或优选ip
         ("CFPORT", "443"),      // 优选域名或优选ip对应的端口
-        ("NAME", "GB-Shuttle.dev"),    // 节点名称
+        ("NAME", "Shuttle.dev"),    // 节点名称
         ("FILE_PATH", "./tmp"), // 运行目录，保持不变
         ("SUB_PATH", "sub"),    // 获取节点订阅路径，分配的域名/sub
     ];
@@ -438,7 +438,7 @@ async fn generate_links() {
 
     let vmess_config = json!({
         "v": "2",
-        "ps": format!("{}-{}", name, isp),
+        "ps": format!("{}-{}", isp, name),
         "add": cfip,
         "port": cfport,
         "id": uuid,
@@ -458,13 +458,13 @@ async fn generate_links() {
         .expect("Failed to create list.txt");
 
     writeln!(list_file, "vless://{}@{}:{}?encryption=none&security=tls&sni={}&fp=chrome&type=ws&host={}&path=%2Fvless-argo%3Fed%3D2560#{}-{}",
-        uuid, cfip, cfport, argodomain, argodomain, name, isp).unwrap();
+        uuid, cfip, cfport, argodomain, argodomain, isp, name).unwrap();
     
     writeln!(list_file, "\nvmess://{}", 
         BASE64_STANDARD.encode(serde_json::to_string(&vmess_config).unwrap())).unwrap();
     
     writeln!(list_file, "\ntrojan://{}@{}:{}?security=tls&sni={}&fp=chrome&type=ws&host={}&path=%2Ftrojan-argo%3Fed%3D2560#{}-{}",
-        uuid, cfip, cfport, argodomain, argodomain, name, isp).unwrap();
+        uuid, cfip, cfport, argodomain, argodomain, isp, name).unwrap();
 
     let list_content = fs::read_to_string(format!("{}/list.txt", file_path))
         .expect("Failed to read list.txt");
