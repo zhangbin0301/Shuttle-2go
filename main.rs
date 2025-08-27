@@ -460,11 +460,11 @@ async fn generate_links() {
     writeln!(list_file, "vless://{}@{}:{}?encryption=none&security=tls&sni={}&fp=chrome&type=ws&host={}&path=%2Fvless-argo%3Fed%3D2560#{}-{}",
         uuid, cfip, cfport, argodomain, argodomain, isp, name).unwrap();
     
-    writeln!(list_file, "\nvmess://{}", 
-        BASE64_STANDARD.encode(serde_json::to_string(&vmess_config).unwrap())).unwrap();
+    //被我注释writeln!(list_file, "\nvmess://{}", 
+        //BASE64_STANDARD.encode(serde_json::to_string(&vmess_config).unwrap())).unwrap();
     
-    writeln!(list_file, "\ntrojan://{}@{}:{}?security=tls&sni={}&fp=chrome&type=ws&host={}&path=%2Ftrojan-argo%3Fed%3D2560#{}-{}",
-        uuid, cfip, cfport, argodomain, argodomain, isp, name).unwrap();
+    //被我注释writeln!(list_file, "\ntrojan://{}@{}:{}?security=tls&sni={}&fp=chrome&type=ws&host={}&path=%2Ftrojan-argo%3Fed%3D2560#{}-{}",
+        //uuid, cfip, cfport, argodomain, argodomain, isp, name).unwrap();
 
     let list_content = fs::read_to_string(format!("{}/list.txt", file_path))
         .expect("Failed to read list.txt");
